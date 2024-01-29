@@ -29,6 +29,18 @@ public class LocacaoService {
 	}
 
 	public static void main(String[] args) {
+		//declarar cenários, inicializar variaveis
+		LocacaoService service = new LocacaoService();
+		Usuario usuario = new Usuario("Usuário 1");
+		Filme filme = new Filme("Filme 2", 2, 5.0);
+
+		//ação invocar o método que queremos testar
+		Locacao locacao = service.alugarFilme(usuario, filme);
+
+		//verificação, assertivas
+		System.out.println(locacao.getValor());
+		System.out.println(locacao.getDataLocacao());
+		System.out.println(locacao.getDataRetorno());
 		
 	}
 }
