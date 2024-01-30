@@ -26,7 +26,7 @@ public class AssertTest {
 
         Usuario usuario = new Usuario("Paulo");
         Usuario usuario2 = new Usuario("Paulo");
-        Usuario usuario3 = usuario2;
+        Usuario usuario3 = null;
 
         //Esta assertiva só funciona devido ao equal e hash code
         Assert.assertEquals(usuario, usuario2);
@@ -34,10 +34,16 @@ public class AssertTest {
         //Assertiva de instancia
         Assert.assertSame(usuario, usuario);
         //representam a mesma instancia
-        Assert.assertSame(usuario3, usuario2);
+        Assert.assertSame(usuario3, usuario3);
 
+        //Verficando se objetoe está nulo
+        Assert.assertTrue(usuario3 == null);
+        Assert.assertNull(usuario3);
 
-
+        //negações
+        Assert.assertNotEquals("bola", "casa");
+        Assert.assertNotSame(usuario2, usuario);
+        Assert.assertNotNull(usuario2);
 
 
     }
