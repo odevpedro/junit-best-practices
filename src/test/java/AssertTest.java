@@ -26,9 +26,18 @@ public class AssertTest {
 
         Usuario usuario = new Usuario("Paulo");
         Usuario usuario2 = new Usuario("Paulo");
+        Usuario usuario3 = usuario2;
 
         //Esta assertiva só funciona devido ao equal e hash code
         Assert.assertEquals(usuario, usuario2);
+
+        //Assertiva de instancia
+        Assert.assertSame(usuario, usuario);
+        //representam a mesma instancia
+        Assert.assertSame(usuario3, usuario2);
+
+
+
 
 
     }
