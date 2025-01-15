@@ -10,6 +10,9 @@ import org.junit.Test;
 
 import java.util.Date;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+
 public class LocacaoServiceTest {
     @Test
     public  void teste() {
@@ -27,4 +30,21 @@ public class LocacaoServiceTest {
         Assert.assertTrue(DataUtils.isMesmaData(locacao.getDataRetorno(), DataUtils.obterDataComDiferencaDias(1)));
 
     }
+
+    @Test
+    public void deveAlugarFilmeComSucesso() {
+        // declaração de variáveis
+        LocacaoService service = new LocacaoService();
+        Usuario usuario = new Usuario("Usuário 1");
+        Filme filme = new Filme("Filme 2", 2, 5.0);
+
+        // ação
+        Locacao locacao = service.alugarFilme(usuario, filme);
+
+        // asserções auto-verificáveis
+        assertEquals(5.0, locacao.getValor(), 0.01);
+        assertNotNull(locacao.getDataLocacao());
+        assertNotNull(locacao.getDataRetorno());
+    }
+ 
 }
