@@ -6,7 +6,7 @@ public class AssertTest {
     @Test
     public void test(){
         Assert.assertTrue(true);
-        Assert.assertFalse(false);
+        Assert.assertFalse(!true);
         Assert.assertEquals(0.51, 0.51, 0.1);
         Assert.assertEquals(Math.PI, 3.14, 0.01);
 
