@@ -3,6 +3,7 @@ package br.com.odevpedro.servicos;
 import br.ce.wcaquino.entidades.Filme;
 import br.ce.wcaquino.entidades.Locacao;
 import br.ce.wcaquino.entidades.Usuario;
+import br.ce.wcaquino.exceptions.FilmeSemEstoqueException;
 import br.ce.wcaquino.servicos.LocacaoService;
 
 import org.junit.Assert;
@@ -23,6 +24,8 @@ public class LocacaoServiceTest {
     @Rule
     public ErrorCollector error = new ErrorCollector();
 
+
+    //usamos nos caminhos não-felizes do teste
     @Rule
     public ExpectedException exception = ExpectedException.none();
 
@@ -41,8 +44,8 @@ public class LocacaoServiceTest {
     }
 
     //elegante - informamos ao teste que existe uma excecao sendo esperada
-    @Test(expected=Exception.class)
-    public void  testandoLocacao_FilmeSemEstoque() throws Exception {
+    @Test(expected= FilmeSemEstoqueException.class)
+    public void  testandoLocacao_FilmeSemEstoque() throws FilmeSemEstoqueException {
         LocacaoService service = new LocacaoService();
         Usuario usuario = new Usuario("Usuário 1");
         Filme filme = new Filme("Filme 1", 0, 5.0);
@@ -84,4 +87,4 @@ public class LocacaoServiceTest {
 
     }
 
-    
+
